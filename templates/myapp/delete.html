@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<h1>{{form_title}}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        Are your sure that you want to delete the following person:
+        <div><strong>UUID:</strong> {{ object.uuid}}</div>
+        <div><strong>First Name:</strong> {{ object.fname }}</div>
+        <div><strong>Last Name:</strong> {{ object.lname }}</div>
+        <div><strong>Age:</strong> {{ object.age }}</div>
+    </p>
+    <a href="{% url 'list-person' %}">Cancel</a>
+    <input type="submit" />
+</form>
+
+</html>

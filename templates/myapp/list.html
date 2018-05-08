@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<h1>{{form_title}}</h1>
+    <a href="{% url 'create-person' %}">Create</a>
+    {% for object in object_list %}
+    <div>
+        <p>
+            <strong>UUID:</strong> {{ object.uuid}}
+            <strong>First Name:</strong> {{ object.fname }}
+            <strong>Last Name:</strong> {{ object.lname }}
+            <strong>Age:</strong> {{ object.age }}
+            <a href="{% url 'edit-person' object.uuid %}">edit</a>
+            <a href="{% url 'delete-person' object.uuid %}">delete</a>
+        </p>
+    </div>
+    {% endfor %}
+
+
+
+</html>
