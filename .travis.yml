@@ -16,7 +16,7 @@ env:
 
 install:
   - curl -Lk https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip -o ~/chromedriver_linux64.zip
-  - unzip ~/chromedriver_linux64.zip
+  - unzip ~/chromedriver_linux64.zip -d ~/
   - rm ~/chromedriver_linux64.zip
   - sudo mv -f ~/chromedriver /usr/local/share/
   - sudo chmod +x /usr/local/share/chromedriver
