@@ -25,5 +25,9 @@ script:
   - python manage.py migrate
   - python manage.py test
 
+after_success:
+  - coverage run --source= manage.py test --noinput
+  - coveralls
+
 
 
