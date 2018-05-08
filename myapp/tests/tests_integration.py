@@ -1,6 +1,6 @@
 from selenium import webdriver
 from django.test import LiveServerTestCase
-from selenium.webdriver.support.wait import WebDriverWait
+import os
 from myapp.models import Person
 
 
@@ -8,7 +8,7 @@ class TestIntegration(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestIntegration, cls).setUpClass()
-        cls.driver = webdriver.Chrome('/Users/lsxliron/Downloads/chromedriver')
+        cls.driver = webdriver.Chrome(os.environ.get('WEBDRIVER'))
         cls.driver.set_window_size(1000, 550)
 
     @classmethod
