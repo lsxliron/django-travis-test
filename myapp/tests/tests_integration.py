@@ -2,13 +2,15 @@ from selenium import webdriver
 from django.test import LiveServerTestCase
 import os
 from myapp.models import Person
-
+from selenium.webdriver.chrome.options import Options
 
 class TestIntegration(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestIntegration, cls).setUpClass()
-        cls.driver = webdriver.Chrome(os.environ.get('WEBDRIVER'))
+        options = Options()
+        options.add_argument("--headless")
+        cls.driver = webdriver.Chrome(os.environ.get('WEBDRIVER'), chrome_options=options)
         cls.driver.set_window_size(1000, 550)
 
     @classmethod
