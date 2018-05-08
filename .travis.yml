@@ -15,13 +15,13 @@ env:
   - DJANGO=1.11.12 DB=sqlite WEBDRIVER=/usr/local/bin/chromedriver
 
 install:
-  - pip install -r requirements.txt
   - curl -Lk https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip -o ~/chromedriver_linux64.zip
-  - cd ~ && unzip ~/chromedriver_linux64.zip
+  - unzip ~/chromedriver_linux64.zip
   - rm ~/chromedriver_linux64.zip
   - sudo mv -f ~/chromedriver /usr/local/share/
   - sudo chmod +x /usr/local/share/chromedriver
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+  - pip install -r requirements.txt
 
 script:
   - python manage.py migrate
